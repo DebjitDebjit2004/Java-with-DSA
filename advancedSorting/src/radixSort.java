@@ -1,4 +1,4 @@
-public class bucketSort {
+public class radixSort {
     static int findMax(int[] arr) {
         int max = Integer.MIN_VALUE;
         for (int ele: arr) {
