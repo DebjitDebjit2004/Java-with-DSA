@@ -1,9 +1,35 @@
 public class problemOnBubbleSortSelectionSort {
-    static void displayArray(int[] arr) {
+    static void displayStringArray(String[] arr) {
+        for (String ele: arr) {
+            System.out.print(ele+" ");
+        }
+        System.out.println();
+    }
+
+    static void displayIntArray(int[] arr) {
         for (int ele: arr) {
             System.out.print(ele+" ");
         }
+        System.out.println();
     }
+
+    static String[] dictionaryOrder(String[] book) {
+        int n = book.length;
+
+        for (int i = 0; i < n - 1; i++) {
+            int minIndex = i;
+            for (int j = i + 1; j < n; j++) {
+                if (book[j].compareTo(book[minIndex]) < 0) {
+                    minIndex = j;
+                }
+            }
+            String temp = book[i];
+            book[i] = book[minIndex];
+            book[minIndex] = temp;
+        }
+        return book;
+    }
+
     static int[] firstNonZeroThenZero(int[] arr) {
         int n = arr.length;
         for (int i = 0; i < n; i++) {
@@ -22,8 +48,12 @@ public class problemOnBubbleSortSelectionSort {
         }
         return arr;
     }
+
     public static void main(String[] args) {
         int[] arr = {0, 5, 4, 3, 0, 0, 1};
-        displayArray(firstNonZeroThenZero(arr));
+        displayIntArray(firstNonZeroThenZero(arr));
+
+        String[] book = {"Red", "Green", "Blue", "White", "Pink", "Yellow"};
+        displayStringArray(dictionaryOrder(book));
     }
 }
