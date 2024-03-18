@@ -1,4 +1,16 @@
 public class binarySearch {
+    static boolean binarySearchUsingRecursion(int[] arr, int start, int end, int target) {
+        if (start > end) return false;
+        int mid = (start + end) / 2;
+        if (target == arr[mid]) {
+            return true;
+        } else if (target < arr[mid]) {
+            return binarySearchUsingRecursion(arr, start, mid - 1, target);
+        } else {
+            return binarySearchUsingRecursion(arr, mid + 1, end, target);
+        }
+    }
+
     static boolean binarySearchAlgorithm(int[] arr, int target) {
         int n = arr.length;
         int start = 0;
@@ -23,6 +35,12 @@ public class binarySearch {
             System.out.println("Element Found");
         } else {
             System.out.println("Element Not Found");
+        }
+
+        if (binarySearchUsingRecursion(arr, 0, arr.length - 1, 45)) {
+            System.out.println("45 is present");
+        } else {
+            System.out.println("45 is not present");
         }
     }
 }
